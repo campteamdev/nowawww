@@ -10,34 +10,44 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             background-color: #f4f4f4;
+        }
+        #map-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
         }
         iframe {
             border: none;
             width: 100%;
             height: 100%;
+            transform: translateY(-30px); /* Przesuwa mapę w górę, aby ukryć pasek */
         }
-        .map-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        .map-container iframe {
+        .overlay-button {
             position: absolute;
-            top: -50px; /* Ukrywa pasek na górze */
-            left: 0;
-            width: 100%;
-            height: calc(100% + 50px); /* Dopasowuje mapę */
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px 15px;
+            border: 2px solid #008000;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #008000;
+            cursor: pointer;
+        }
+        .overlay-button:hover {
+            background-color: #008000;
+            color: #fff;
         }
     </style>
 </head>
 <body>
-    <div class="map-container">
+    <div id="map-container">
         <iframe 
             src="https://www.google.com/maps/d/u/1/embed?mid=1SlAVisbgK4kYUD573fgpsoygQj5w9K0&ehbc=2E312F&noprof=1" 
             allowfullscreen>
@@ -45,3 +55,4 @@
     </div>
 </body>
 </html>
+
